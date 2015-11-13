@@ -61,15 +61,14 @@ def destroy_droplets():
 
 
 if __name__ == '__main__':
-	#import pdb; pdb.set_trace();
-	destroy=False
+	destroy=True
 
 	list_droplets()
 
-	for droplet_name in MANAGED_DROPLETS:	
-		print "Creating Droplet: %s" % ( droplet_name )
-		create_vm(droplet_name)
-
 	if destroy:
 		destroy_droplets()
+	else:
+		for droplet_name in MANAGED_DROPLETS:	
+			print "Creating Droplet: %s" % ( droplet_name )
+			create_vm(droplet_name)
 
